@@ -44,10 +44,12 @@ body{
     display: flex;
     justify-content: space-around;
 }
-#tools{
+.wrapper{
     background-color: black;
     height: auto;
-    width: 200px;
+    width: 170px;
+    display: flex;
+    flex-direction: column;
 }
 body{
     margin: 0;
@@ -58,7 +60,6 @@ body{
     width: 80px;
     height: 80px;
     color:white;
-
 }
 
 .tool:hover{
@@ -70,8 +71,23 @@ body{
     flex-direction: column;
     align-items: center;
     padding-top: 25px;
+    padding-bottom: 40px;
     color:white;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Bungee', cursive;
+}
+#inventroy{
+    margin-top: -top: 20px;
+}
+#inventory div{
+    display: inline-block;
+    border: 1px white solid;
+    width: 80px;
+    height: 80px;
+    color:white;
+}
+.inventory{
+    font-size: 20px;
+    text-align: center;
 }

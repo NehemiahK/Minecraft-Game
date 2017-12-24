@@ -68,6 +68,7 @@ $(document).ready(function(){
     var toolArray = ["picaxe","shovel","axe"];
 
     var toolImages =["pickaxe.png","shovel.png","axe.png"];
+
     function toolMaker(){
 
         for (var t=0;t<toolArray.length;t++){
@@ -98,7 +99,13 @@ $(document).ready(function(){
         carrying = selectedTool.attr("class");
     }
 
+    /*the counts store the inventory of each resource*/
 
+    var dirtCount=0;
+    var grassCount =0;
+    var leafCount =0;
+    var treeCount=0;
+    var rockCount =0;
 
     function divSelect(){
         var selectedDiv = $(this).attr("class");
@@ -109,27 +116,89 @@ $(document).ready(function(){
                 if(carrying=='tool shovel'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
+
+                    if(selectedDiv =='dirt divBg'){
+                        dirtCount++;
+                    }
+                    else if(selectedDiv =='grass divBg'){
+                        grassCount++;
+                    }
                 }
             }
 
             else if(selectedDiv =='leaf divBg' ||selectedDiv =='tree divBg'){
+
                 if(carrying=='tool axe'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
+
+                    if(selectedDiv =='leaf divBg'){
+                        leafCount++;
+
+                    }
+                    else if(selectedDiv =='tree divBg'){
+                        treeCount++;
+                    }
                 }
             }
             else if(selectedDiv =='rock divBg'){
                 if(carrying=='tool picaxe'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
+                    rockCount++;
                 }
             }
+            var strNameUpdate = selectedDiv.replace(" divBg","");
+            console.log(strNameUpdate);
+            updateInventory(strNameUpdate);
 
         }
+
+
+
+
+    }
+    var resourceArray = ["grass","leaf","dirt","rock","tree"];
+
+    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount];
+
+    function inventoryMaker(){
+        for (var y=0; y<resourceArray.length;y++){
+            var div = $("<div/>");
+            var currCount = $("<p/>");
+            currCount.attr('id',resourceArray[y] + 'Number');
+            currCount.text(countNames[y]);
+            div.addClass("inventory");
+            div.addClass(resourceArray[y]);
+            div.append(currCount);
+            $('#inventory').append(div);
+
+        }
+    }
+
+    function updateInventory(resourceToUpdate){
+         if (resourceToUpdate=='leaf'){
+            $('#leafNumber').html(leafCount);
+         }
+         else if(resourceToUpdate=='tree'){
+             $('#treeNumber').html(treeCount);
+         }
+         else if(resourceToUpdate=='dirt'){
+             $('#dirtNumber').html(dirtCount);
+         }
+         else if(resourceToUpdate=='grass'){
+             $('#grassNumber').html(grassCount);
+         }
+         else if(resourceToUpdate=='rock'){
+             $('#rockNumber').html(rockCount);
+         }
 
     }
 
     makeBg();
     toolMaker();
+    inventoryMaker();
+
+
 
 });
