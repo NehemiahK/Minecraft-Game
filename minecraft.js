@@ -56,7 +56,7 @@ $(document).ready(function(){
                     col.addClass("divBg");
                 }
 
-                col.click(changeName);
+                col.click(divSelect);
                 row.append(col);
 
 
@@ -89,23 +89,47 @@ $(document).ready(function(){
     }
 
     var selectedTool;
+    var carrying;
 
     function toolSelect(){
         selectedTool = $(this);
         $('.tool').css("background-color","black");
         selectedTool.css("background-color","blue");
+        carrying = selectedTool.attr("class");
     }
 
 
-    function changeName(){
-        alert("that hurts");
+
+    function divSelect(){
+        var selectedDiv = $(this).attr("class");
+
+        if(selectedDiv!='divBg'){
+            //console.log(selectedDiv);
+            if (selectedDiv =='dirt divBg' || selectedDiv =='grass divBg'){
+                if(carrying=='tool shovel'){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                }
+            }
+
+            else if(selectedDiv =='leaf divBg' ||selectedDiv =='tree divBg'){
+                if(carrying=='tool axe'){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                }
+            }
+            else if(selectedDiv =='rock divBg'){
+                if(carrying=='tool picaxe'){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                }
+            }
+
+        }
+
     }
-
-
 
     makeBg();
     toolMaker();
-
-
 
 });
