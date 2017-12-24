@@ -80,13 +80,22 @@ $(document).ready(function(){
             var words = $("<p/>");
             words.text(toolArray[t]);
 
-
             $('#tools').append(div);
             div.append(words);
+            div.click(toolSelect);
 
         }
 
     }
+
+    var selectedTool;
+
+    function toolSelect(){
+        selectedTool = $(this);
+        $('.tool').css("background-color","black");
+        selectedTool.css("background-color","blue");
+    }
+
 
     function changeName(){
         alert("that hurts");
