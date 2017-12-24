@@ -1,0 +1,77 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+
+body{
+    line-height: 0;
+}
+.divBg{
+    width:30px;
+    height: 30px;
+    background-color: #91C1FC;
+    display: inline-block;
+}
+.divBg:hover{
+    /*to make an inner shadow on the divs*/
+    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 1) inset;
+}
+
+.dirt{
+    background-image: url("dirt.png");
+    background-size: contain;
+}
+.grass{
+    background-image: url("grass.png");
+    background-size: contain;
+}
+.tree{
+    background-image: url("tree.png");
+    background-size: contain;
+}
+.leaf{
+    background-image: url("leaf.jpg");
+    background-size: contain;
+}
+.rock{
+    background-image: url("rock.png");
+    background-size: contain;
+}
+.clouds{
+    background-size: contain;
+    background-color: #FFF;
+
+}
+#layout{
+    display: flex;
+    justify-content: space-around;
+}
+#tools{
+    background-color: black;
+    height: auto;
+    width: 200px;
+}
+body{
+    margin: 0;
+}
+
+.tool{
+    border: 1px white solid;
+    width: 80px;
+    height: 80px;
+    color:white;
+
+}
+
+.tool:hover{
+    background-color: blue;
+}
+
+#tools{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+    color:white;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Bungee', cursive;
+}
