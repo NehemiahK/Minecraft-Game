@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    //messed up other functionalities.
+    /* make it appear as though it's night and day*/
+
     var minecraftTime=0;
 
     setInterval(function(){
@@ -22,7 +23,6 @@ $(document).ready(function(){
         }
     }, 3000);
 
-    //var clouds = [[],[]]
 
     function makeBg(){
 
@@ -151,8 +151,6 @@ $(document).ready(function(){
                     }
                 },300)
             }
-
-
 
         }
 
@@ -305,6 +303,14 @@ $(document).ready(function(){
         $("#board").html("");
         $("#tools").html("");
         $("#inventory").html("");
+
+        dirtCount=0;
+        grassCount =0;
+        leafCount =0;
+        treeCount=0;
+        rockCount =0;
+
+        selectedTool="";
 
         makeBg();
         toolMaker();
