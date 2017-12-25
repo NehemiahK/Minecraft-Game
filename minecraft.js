@@ -257,7 +257,7 @@ $(document).ready(function(){
 
     function inventoryMaker(){
         for (var y=0; y<resourceArray.length;y++){
-            var div = $("<div/>");
+            var div = $("<button/>");
             var currCount = $("<p/>");
             currCount.attr('id',resourceArray[y] + 'Number');
             currCount.text(countNames[y]);

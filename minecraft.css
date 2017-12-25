@@ -86,7 +86,7 @@ body{
 #inventroy{
     margin-top: -top: 20px;
 }
-#inventory div{
+#inventory button{
     display: inline-block;
     border: 1px white solid;
     width: 80px;
