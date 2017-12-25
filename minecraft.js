@@ -153,6 +153,39 @@ $(document).ready(function(){
             updateInventory(strNameUpdate);
 
         }
+        if (selectedDiv=='divBg'){
+
+            if(currentResource=='tree' && treeCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("tree divBg");
+                treeCount--;
+            }
+
+            else if(currentResource=='leaf' && leafCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("leaf divBg");
+                leafCount--;
+            }
+            else if(currentResource=='dirt' && dirtCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("dirt divBg");
+                dirtCount--;
+            }
+            else if(currentResource=='rock' && rockCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("rock divBg");
+                rockCount--;
+            }
+            else if(currentResource=='grass' && grassCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("grass divBg");
+                grassCount--;
+            }
+
+
+
+            updateInventory(currentResource);
+        }
 
     }
     var resourceArray = ["grass","leaf","dirt","rock","tree"];
@@ -173,12 +206,11 @@ $(document).ready(function(){
 
         }
     }
-
+    var currentResource;
     function getResource(){
         var curr = $(this).attr("class");
         var resourceName = curr.replace("inventory ","");
-
-        placeResource(resourceName);
+        currentResource = resourceName;
     }
 
     function updateInventory(resourceToUpdate){
