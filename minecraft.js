@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     function makeBg(){
 
-    
+
         for (var i=0; i<20; i++){ // i is column
 
             var row = $("<div/>");
@@ -48,6 +48,9 @@ $(document).ready(function(){
                     col.addClass("tree divBg");
                 }
 
+                if (i==14 && (j==2 || j==13 || j==17)){
+                    col.addClass("pika divBg");
+                }
                 if (i==15){
                     col.addClass("grass divBg");
                 }
@@ -67,9 +70,9 @@ $(document).ready(function(){
 
     }
 
-    var toolArray = ["picaxe","shovel","axe"];
+    var toolArray = ["picaxe","shovel","axe","pokeball"];
 
-    var toolImages =["pickaxe.png","shovel.png","axe.png"];
+    var toolImages =["pickaxe.png","shovel.png","axe.png","ball.png"];
 
     function toolMaker(){
 
@@ -109,6 +112,10 @@ $(document).ready(function(){
     var leafCount =0;
     var treeCount=0;
     var rockCount =0;
+    var pikaCount =5;
+
+
+
     var backgroundTimer=0;
 
     var noClick= false;
@@ -152,7 +159,7 @@ $(document).ready(function(){
                     }
                 }
 
-                else if(carrying=='tool axe' || carrying=='tool picaxe'){
+                else if(carrying=='tool axe' || carrying=='tool picaxe' || carrying=='tool pokeball'){
                     blinkRed();
 
                 }
@@ -173,7 +180,7 @@ $(document).ready(function(){
                         treeCount++;
                     }
                 }
-                else if(carrying=='tool shovel' || carrying=='tool picaxe'){
+                else if(carrying=='tool shovel' || carrying=='tool picaxe' || carrying=='tool pokeball'){
                     blinkRed();
                 }
             }
@@ -185,17 +192,37 @@ $(document).ready(function(){
                     rockCount++;
                 }
 
-                else if(carrying=='tool axe' || carrying=='tool shovel'){
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pokeball'){
                     blinkRed();
-
                 }
             }
+
+            else if(selectedDiv =='pika divBg'){
+
+                if(carrying=='tool pokeball'){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    pikaCount++;
+                }
+
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                    blinkRed();
+                }
+            }
+
+
             var strNameUpdate = selectedDiv.replace(" divBg","");
             //console.log(strNameUpdate);
             updateInventory(strNameUpdate);
 
         }
         if (selectedDiv=='divBg'){
+
+            if(currentResource=='pika' && pikaCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("pika divBg");
+                pikaCount--;
+            }
 
             if(currentResource=='tree' && treeCount>0){
                 $(this).removeClass(selectedDiv);
@@ -228,9 +255,9 @@ $(document).ready(function(){
         }
 
     }
-    var resourceArray = ["grass","leaf","dirt","rock","tree"];
+    var resourceArray = ["grass","leaf","dirt","rock","tree","pika"];
 
-    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount];
+    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount,pikaCount];
 
     function inventoryMaker(){
         for (var y=0; y<resourceArray.length;y++){
@@ -272,6 +299,9 @@ $(document).ready(function(){
          else if(resourceToUpdate=='rock'){
              $('#rockNumber').html(rockCount);
          }
+         else if(resourceToUpdate=='pika'){
+             $('#pikaNumber').html(pikaCount);
+         }
     }
 
     var resetButton = $('#restore').click(resetBoard);
@@ -286,7 +316,7 @@ $(document).ready(function(){
         leafCount =0;
         treeCount=0;
         rockCount =0;
-
+        pikaCount =5;
         selectedTool="";
 
         makeBg();

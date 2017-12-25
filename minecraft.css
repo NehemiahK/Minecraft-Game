@@ -76,9 +76,12 @@ body{
     background-size: contain;
     background-color: #FFF;
 }
-.rick{
+
+.pika{
+    background-image: url("pika.png");
     background-size: contain;
-    background-image: url("rick.png");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #layout{
@@ -89,7 +92,7 @@ body{
 .wrapper{
     background-color: black;
     height: auto;
-    width: 170px;
+    width: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -99,10 +102,11 @@ body{
 
 .tool{
     border: 1px white solid;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     color:white;
 }
+
 
 .tool:hover{
     background-color: blue !important;
@@ -112,23 +116,21 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 25px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     color:white;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Bungee', cursive;
 }
-#inventroy{
-    margin-top: -top: 20px;
-}
+
 #inventory button{
     display: inline-block;
-    border: 1px white solid;
-    width: 80px;
-    height: 80px;
-    color:white;
+    width: 66px;
+    height: 44px;
+    color:black;
 }
+
 .inventory{
     font-size: 20px;
     text-align: center;
@@ -146,8 +148,8 @@ body{
 
 @media only screen and (min-width: 1001px) {
     .divBg{
-        width:30px;
-        height: 30px;
+        width:35px;
+        height: 35px;
         background-color: #91C1FC;
         display: inline-block;
     }
