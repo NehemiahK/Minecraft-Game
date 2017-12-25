@@ -9,7 +9,47 @@ body{
     height: 30px;
     background-color: #91C1FC;
     display: inline-block;
+
+
 }
+.divBg:not(.clouds){
+    animation: colorchange 150s; /* animation-name followed by duration in seconds*/
+       /* you could also use milliseconds (ms) or something like 2.5s */
+    -webkit-animation: colorchange 150s; /* Chrome and Safari */
+}
+
+
+ @keyframes colorchange
+ {
+   0%   {background-color: #91C1FC;}
+   10   {background-color: #81ade2;}
+   10%  {background-color: #74a2db;}
+   20%  {background-color: #1464c5;}
+   30%  {background-color: #5b88c1;}
+   40% {background-color: #3a5e8c;}
+   50% {background-color: #000e1f;}
+   60%  {background-color: #3a5e8c;}
+   70%  {background-color: #5b88c1;}
+   80%  {background-color: #1464c5;}
+   90%  {background-color: #74a2db;}
+   100%  {background-color: #81ade2;}
+ }
+
+ @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+ {
+     0%   {background-color: #91C1FC;}
+     10   {background-color: #81ade2;}
+     10%  {background-color: #74a2db;}
+     20%  {background-color: #1464c5;}
+     30%  {background-color: #5b88c1;}
+     40% {background-color: #3a5e8c;}
+     50% {background-color: #000e1f;}
+     60%  {background-color: #3a5e8c;}
+     70%  {background-color: #5b88c1;}
+     80%  {background-color: #1464c5;}
+     90%  {background-color: #74a2db;}
+     100%  {background-color: #81ade2;}
+ }
 
 .divBg:hover{
     /*to make an inner shadow on the divs*/

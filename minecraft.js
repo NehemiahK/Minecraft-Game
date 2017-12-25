@@ -1,28 +1,4 @@
 $(document).ready(function(){
-    /* make it appear as though it's night and day*/
-
-    var minecraftTime=0;
-
-    setInterval(function(){
-        minecraftTime++;
-
-        var bg = $(".divBg:not(.clouds)");
-
-        if (minecraftTime==5){
-            bg.css("background-color","#52a0ff");
-        }
-        else if (minecraftTime==10){
-            bg.css("background-color","#1464c5");
-        }
-        else if (minecraftTime==15){
-            bg.css("background-color","#000e1f");
-        }
-        else if (minecraftTime==20){
-            bg.css("background-color","#91C1FC");
-            minecraftTime=0;
-        }
-    }, 3000);
-
 
     function makeBg(){
 
