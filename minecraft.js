@@ -7,16 +7,16 @@ $(document).ready(function(){
 
         var bg = $(".divBg:not(.clouds)");
 
-        if (minecraftTime==3){
+        if (minecraftTime==5){
             bg.css("background-color","#52a0ff");
         }
-        else if (minecraftTime==6){
+        else if (minecraftTime==10){
             bg.css("background-color","#1464c5");
         }
-        else if (minecraftTime==9){
+        else if (minecraftTime==15){
             bg.css("background-color","#000e1f");
         }
-        else if (minecraftTime==12){
+        else if (minecraftTime==20){
             bg.css("background-color","#91C1FC");
             minecraftTime=0;
         }
@@ -133,6 +133,19 @@ $(document).ready(function(){
     var rockCount =0;
     var backgroundTimer=0;
 
+
+    function blinkRed(){
+        var backgroundInterval = setInterval(function(){
+            selectedTool.toggleClass("backgroundRed");
+            backgroundTimer++;
+
+            if(backgroundTimer==4){
+                clearInterval(backgroundInterval);
+                backgroundTimer=0;
+            }
+        },300)
+    }
+
     function divSelect(){
         var selectedDiv = $(this).attr("class");
 
@@ -153,18 +166,8 @@ $(document).ready(function(){
                 }
 
                 else if(carrying=='tool axe' || carrying=='tool picaxe'){
+                    blinkRed();
 
-                    var backgroundInterval = setInterval(function(){
-
-                        selectedTool.toggleClass("backgroundRed");
-                        backgroundTimer++;
-
-                        if(backgroundTimer==4){
-                            clearInterval(backgroundInterval);
-                            backgroundTimer=0;
-                        }
-
-                    },300)
                 }
 
             }
@@ -184,18 +187,7 @@ $(document).ready(function(){
                     }
                 }
                 else if(carrying=='tool shovel' || carrying=='tool picaxe'){
-
-                    var backgroundInterval = setInterval(function(){
-
-                        selectedTool.toggleClass("backgroundRed");
-                        backgroundTimer++;
-
-                        if(backgroundTimer==4){
-                            clearInterval(backgroundInterval);
-                            backgroundTimer=0;
-                        }
-
-                    },300)
+                    blinkRed();
                 }
             }
             else if(selectedDiv =='rock divBg'){
@@ -207,18 +199,7 @@ $(document).ready(function(){
                 }
 
                 else if(carrying=='tool axe' || carrying=='tool shovel'){
-
-                    var backgroundInterval = setInterval(function(){
-
-                        selectedTool.toggleClass("backgroundRed");
-                        backgroundTimer++;
-
-                        if(backgroundTimer==4){
-                            clearInterval(backgroundInterval);
-                            backgroundTimer=0;
-                        }
-
-                    },300)
+                    blinkRed();
 
                 }
             }
