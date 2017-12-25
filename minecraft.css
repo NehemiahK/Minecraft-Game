@@ -91,3 +91,9 @@ body{
     font-size: 20px;
     text-align: center;
 }
+#restore{
+    font-size: 20px;
+    font-family: 'Bungee', cursive;
+    margin:15px 0px;
+    height:30px;
+}

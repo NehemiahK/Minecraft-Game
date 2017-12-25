@@ -111,7 +111,7 @@ $(document).ready(function(){
         var selectedDiv = $(this).attr("class");
 
         if(selectedDiv!='divBg'){
-            //console.log(selectedDiv);
+
             if (selectedDiv =='dirt divBg' || selectedDiv =='grass divBg'){
                 if(carrying=='tool shovel'){
                     $(this).removeClass(selectedDiv);
@@ -149,7 +149,7 @@ $(document).ready(function(){
                 }
             }
             var strNameUpdate = selectedDiv.replace(" divBg","");
-            console.log(strNameUpdate);
+            //console.log(strNameUpdate);
             updateInventory(strNameUpdate);
 
         }
@@ -230,7 +230,18 @@ $(document).ready(function(){
          else if(resourceToUpdate=='rock'){
              $('#rockNumber').html(rockCount);
          }
+    }
 
+    var resetButton = $('#restore').click(resetBoard);
+
+    function resetBoard(){
+        $("#board").html("");
+        $("#tools").html("");
+        $("#inventory").html("");
+
+        makeBg();
+        toolMaker();
+        inventoryMaker();
     }
 
     makeBg();
