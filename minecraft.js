@@ -106,6 +106,7 @@ $(document).ready(function(){
     var leafCount =0;
     var treeCount=0;
     var rockCount =0;
+    var backgroundTimer=0;
 
     function divSelect(){
         var selectedDiv = $(this).attr("class");
@@ -113,6 +114,7 @@ $(document).ready(function(){
         if(selectedDiv!='divBg'){
 
             if (selectedDiv =='dirt divBg' || selectedDiv =='grass divBg'){
+
                 if(carrying=='tool shovel'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
@@ -124,6 +126,22 @@ $(document).ready(function(){
                         grassCount++;
                     }
                 }
+
+                else if(carrying=='tool axe' || carrying=='tool picaxe'){
+
+                    var backgroundInterval = setInterval(function(){
+
+                        selectedTool.toggleClass("backgroundRed");
+                        backgroundTimer++;
+
+                        if(backgroundTimer==4){
+                            clearInterval(backgroundInterval);
+                            backgroundTimer=0;
+                        }
+
+                    },300)
+                }
+
             }
 
             else if(selectedDiv =='leaf divBg' ||selectedDiv =='tree divBg'){
@@ -140,12 +158,43 @@ $(document).ready(function(){
                         treeCount++;
                     }
                 }
+                else if(carrying=='tool shovel' || carrying=='tool picaxe'){
+
+                    var backgroundInterval = setInterval(function(){
+
+                        selectedTool.toggleClass("backgroundRed");
+                        backgroundTimer++;
+
+                        if(backgroundTimer==4){
+                            clearInterval(backgroundInterval);
+                            backgroundTimer=0;
+                        }
+
+                    },300)
+                }
             }
             else if(selectedDiv =='rock divBg'){
+
                 if(carrying=='tool picaxe'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
                     rockCount++;
+                }
+
+                else if(carrying=='tool axe' || carrying=='tool shovel'){
+
+                    var backgroundInterval = setInterval(function(){
+
+                        selectedTool.toggleClass("backgroundRed");
+                        backgroundTimer++;
+
+                        if(backgroundTimer==4){
+                            clearInterval(backgroundInterval);
+                            backgroundTimer=0;
+                        }
+
+                    },300)
+
                 }
             }
             var strNameUpdate = selectedDiv.replace(" divBg","");
