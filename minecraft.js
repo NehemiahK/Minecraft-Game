@@ -182,8 +182,6 @@ $(document).ready(function(){
                 grassCount--;
             }
 
-
-
             updateInventory(currentResource);
         }
 
@@ -207,10 +205,13 @@ $(document).ready(function(){
         }
     }
     var currentResource;
+
     function getResource(){
         var curr = $(this).attr("class");
         var resourceName = curr.replace("inventory ","");
         currentResource = resourceName;
+        carrying="";
+        $('.tool').css("background-color","black");
     }
 
     function updateInventory(resourceToUpdate){
@@ -235,7 +236,6 @@ $(document).ready(function(){
     makeBg();
     toolMaker();
     inventoryMaker();
-
 
 
 });
