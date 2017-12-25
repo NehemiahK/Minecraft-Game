@@ -22,6 +22,7 @@ $(document).ready(function(){
         }
     }, 3000);
 
+    //var clouds = [[],[]]
 
     function makeBg(){
 
@@ -31,7 +32,7 @@ $(document).ready(function(){
             $('#board').append(row);
 
             for (var j=0; j<30; j++){ // j is row
-                    var col = $("<div/>");
+                var col = $("<div/>");
 
                 if(i==2 && j<=8 && j>=6){
                     col.addClass("clouds divBg");
@@ -133,18 +134,29 @@ $(document).ready(function(){
     var rockCount =0;
     var backgroundTimer=0;
 
+    var noClick= false;
 
     function blinkRed(){
-        var backgroundInterval = setInterval(function(){
-            selectedTool.toggleClass("backgroundRed");
-            backgroundTimer++;
 
-            if(backgroundTimer==4){
-                clearInterval(backgroundInterval);
-                backgroundTimer=0;
+            if (noClick==false){
+                noClick = true;
+                var backgroundInterval = setInterval(function(){
+                    selectedTool.toggleClass("backgroundRed");
+                    backgroundTimer++;
+
+                    if(backgroundTimer==4){
+                        clearInterval(backgroundInterval);
+                        backgroundTimer=0;
+                        noClick = false;
+                    }
+                },300)
             }
-        },300)
-    }
+
+
+
+        }
+
+
 
     function divSelect(){
         var selectedDiv = $(this).attr("class");

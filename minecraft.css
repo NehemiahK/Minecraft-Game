@@ -39,11 +39,16 @@ body{
 .clouds{
     background-size: contain;
     background-color: #FFF;
-
 }
+.rick{
+    background-size: contain;
+    background-image: url("rick.png");
+}
+
 #layout{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 .wrapper{
     background-color: black;
