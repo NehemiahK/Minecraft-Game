@@ -10,15 +10,6 @@ body{
     background-color: #91C1FC;
     display: inline-block;
 }
-.darker{
-    background-color: #52a0ff;
-}
-.darker2{
-    background-color: #1464c5;
-}
-.darker3{
-    background-color:#000e1f;
-}
 
 .divBg:hover{
     /*to make an inner shadow on the divs*/

@@ -1,31 +1,26 @@
 $(document).ready(function(){
-    /*messed up other functionalities.
+    //messed up other functionalities.
     var minecraftTime=0;
 
     setInterval(function(){
         minecraftTime++;
 
-        var bg = $(".divBg");
+        var bg = $(".divBg:not(.clouds)");
 
         if (minecraftTime==3){
-            bg.addClass("darker");
+            bg.css("background-color","#52a0ff");
         }
         else if (minecraftTime==6){
-            bg.removeClass("darker");
-            bg.addClass("darker2");
+            bg.css("background-color","#1464c5");
         }
         else if (minecraftTime==9){
-            bg.removeClass("darker2");
-            bg.addClass("darker3");
+            bg.css("background-color","#000e1f");
         }
         else if (minecraftTime==12){
-            bg.removeClass("darker3");
-            bg.addClass("divBg");
+            bg.css("background-color","#91C1FC");
             minecraftTime=0;
         }
-
-
-    }, 3000);*/
+    }, 3000);
 
 
     function makeBg(){
