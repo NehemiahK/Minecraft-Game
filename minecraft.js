@@ -154,9 +154,6 @@ $(document).ready(function(){
 
         }
 
-
-
-
     }
     var resourceArray = ["grass","leaf","dirt","rock","tree"];
 
@@ -172,8 +169,16 @@ $(document).ready(function(){
             div.addClass(resourceArray[y]);
             div.append(currCount);
             $('#inventory').append(div);
+            div.click(getResource);
 
         }
+    }
+
+    function getResource(){
+        var curr = $(this).attr("class");
+        var resourceName = curr.replace("inventory ","");
+
+        placeResource(resourceName);
     }
 
     function updateInventory(resourceToUpdate){
