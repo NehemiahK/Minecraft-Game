@@ -1,4 +1,33 @@
 $(document).ready(function(){
+    /*messed up other functionalities.
+    var minecraftTime=0;
+
+    setInterval(function(){
+        minecraftTime++;
+
+        var bg = $(".divBg");
+
+        if (minecraftTime==3){
+            bg.addClass("darker");
+        }
+        else if (minecraftTime==6){
+            bg.removeClass("darker");
+            bg.addClass("darker2");
+        }
+        else if (minecraftTime==9){
+            bg.removeClass("darker2");
+            bg.addClass("darker3");
+        }
+        else if (minecraftTime==12){
+            bg.removeClass("darker3");
+            bg.addClass("divBg");
+            minecraftTime=0;
+        }
+
+
+    }, 3000);*/
+
+
     function makeBg(){
 
         for (var i=0; i<20; i++){ // i is column
@@ -97,6 +126,7 @@ $(document).ready(function(){
         $('.tool').css("background-color","black");
         selectedTool.css("background-color","blue");
         carrying = selectedTool.attr("class");
+        currentResource="";
     }
 
     /*the counts store the inventory of each resource*/
