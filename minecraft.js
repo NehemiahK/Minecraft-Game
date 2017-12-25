@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     function makeBg(){
 
+    
         for (var i=0; i<20; i++){ // i is column
 
             var row = $("<div/>");

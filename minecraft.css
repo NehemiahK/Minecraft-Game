@@ -1,17 +1,13 @@
 
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 
+
+
+
 body{
     line-height: 0;
 }
-.divBg{
-    width:30px;
-    height: 30px;
-    background-color: #91C1FC;
-    display: inline-block;
 
-
-}
 .divBg:not(.clouds){
     animation: colorchange 150s; /* animation-name followed by duration in seconds*/
        /* you could also use milliseconds (ms) or something like 2.5s */
@@ -145,4 +141,23 @@ body{
 }
 .backgroundRed{
     background: red !important;
+}
+
+
+@media only screen and (min-width: 1001px) {
+    .divBg{
+        width:30px;
+        height: 30px;
+        background-color: #91C1FC;
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .divBg{
+        width:26px;
+        height: 26px;
+        background-color: #91C1FC;
+        display: inline-block;
+    }
 }
