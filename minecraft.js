@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+
+
     function makeBg(){
 
 
@@ -12,27 +14,30 @@ $(document).ready(function(){
                 var col = $("<div/>");
 
                 if(i==2 && j<=8 && j>=6){
-                    col.addClass("clouds divBg");
+                    col.addClass("clouds");
                 }
                 if(i==6 && j==8){
-                    col.addClass("clouds divBg");
+                    col.addClass("clouds");
                 }
 
                 if(i==3 && j>=5 &&j<=9){
-                    col.addClass("clouds divBg");
+                    col.addClass("clouds");
                 }
                 if(i==5 && j>=7 &&j<=9){
-                    col.addClass("clouds divBg");
+                    col.addClass("clouds");
                 }
 
                 if(i==4 && j>3 && j<12 ){
-                    col.addClass("clouds divBg");
+                    col.addClass("clouds");
                 }
 
                 if (i==14 && j>13 && j<17){
                     col.addClass("rock divBg");
                 }
 
+                if(i==2 && j==5){
+                    col.addClass("pidgey divBg");
+                }
                 if (i==14 && j>3 && j<7){
                     col.addClass("leaf divBg");
                 }
@@ -48,11 +53,24 @@ $(document).ready(function(){
                     col.addClass("tree divBg");
                 }
 
-                if (i==14 && (j==2 || j==13 || j==17)){
-                    col.addClass("pika divBg");
+                if (i==14 && j==2 ){
+                    col.addClass("bulbasaur divBg");
                 }
+                if (i==14 && j==13){
+                    col.addClass("charmander divBg");
+                }
+                if (i==14 && j==17){
+                    col.addClass("squirtle divBg");
+                }
+                if (i==14 && j==28){
+                    col.addClass("mewtwo divBg");
+                }
+
                 if (i==15){
                     col.addClass("grass divBg");
+                }
+                if (i==18 && j==5){
+                    col.addClass("diglett divBg");
                 }
                 else if (i>=16){
                     col.addClass("dirt divBg");
@@ -70,6 +88,9 @@ $(document).ready(function(){
 
     }
 
+    //$(".charmander").attr("id","charmy");
+    //
+
     var toolArray = ["picaxe","shovel","axe","pokeball"];
 
     var toolImages =["pickaxe.png","shovel.png","axe.png","ball.png"];
@@ -85,7 +106,6 @@ $(document).ready(function(){
             div.append(pic);
             var words = $("<p/>");
             words.text(toolArray[t]);
-
             $('#tools').append(div);
             div.append(words);
             div.click(toolSelect);
@@ -112,8 +132,14 @@ $(document).ready(function(){
     var leafCount =0;
     var treeCount=0;
     var rockCount =0;
-    var pikaCount =5;
 
+    var pikaCount =1;
+    var diglettCount =0;
+    var pidgeyCount =0;
+    var bulbasaurCount =0;
+    var charmanderCount =0;
+    var mewtwoCount =0;
+    var squirtleCount =0;
 
 
     var backgroundTimer=0;
@@ -139,8 +165,12 @@ $(document).ready(function(){
         }
 
 
+function stats(){
+    alert(this.health);
+}
 
     function divSelect(){
+
         var selectedDiv = $(this).attr("class");
 
         if(selectedDiv!='divBg'){
@@ -208,11 +238,91 @@ $(document).ready(function(){
                 else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
                     blinkRed();
                 }
+
+            }
+            else if(selectedDiv =='charmander divBg'){
+                if (currentResource=='pika'  && pikaCount>0 || currentResource=='squirtle' && squirtleCount>0
+                || currentResource=="bulbasaur" && bulbasaurCount>0){
+
+                    if (currentResource=='pika'){
+                        charHealth-= $('.pika').data("attack");
+                    }
+                    else if(currentResource=='squirtle'){
+                            charHealth-= $(".squirtle").data("attack");
+                    }
+                    else if(currentResource=='bulbasaur'){
+                            charHealth-= $(".bulbasaur").data("attack");
+                    }
+
+                    $(this).data("health",charHealth);
+                    $('#healthbar').css("width",charHealth);
+                    //alert($(this).data("health"));
+                }
+
+                if(carrying=='tool pokeball' && ($(this).data("health")<40 || capturedChar==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    charmanderCount++;
+                    capturedChar=true;
+                }
+            }
+            else if(selectedDiv =='squirtle divBg'){
+
+                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
+                currentResource=="bulbasaur" && bulbasaurCount>0){
+                    if (currentResource=='pika'){
+                        squirtHealth-= $(".pika").data("attack");
+                    }
+                    else if(currentResource=='charmander'){
+                            squirtHealth-= $(".charmander").data("attack");
+                    }
+                    else if(currentResource=='bulbasaur'){
+                            squirtHealth-= $(".bulbasaur").data("attack");
+                    }
+
+                    $(this).data("health",squirtHealth);
+                    $('#healthbar').css("width",squirtHealth);
+                    //alert($(this).data("health"));
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<40 || capturedSquirt==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    squirtleCount++;
+                    capturedSquirt=true;
+                }
+            }
+
+            else if(selectedDiv =='bulbasaur divBg'){
+
+                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
+            currentResource=='squirtle' && squirtleCount>0 ){
+
+                    if (currentResource=='pika'){
+                        bulbHeath-= $(".pika").data("attack");
+                    }
+                    else if(currentResource=='charmander'){
+                            bulbHeath-= $(".charmander").data("attack");
+                    }
+                    else if(currentResource=='squirtle'){
+                            bulbHeath-= $(".squirtle").data("attack");
+                    }
+
+                    $(this).data("health",bulbHeath);
+                    $('#healthbar').css("width",bulbHeath);
+                    //alert($(this).data("health"));
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedBulb==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    bulbasaurCount++;
+                    capturedBulb=true;
+                }
             }
 
 
             var strNameUpdate = selectedDiv.replace(" divBg","");
-            //console.log(strNameUpdate);
             updateInventory(strNameUpdate);
 
         }
@@ -250,14 +360,32 @@ $(document).ready(function(){
                 $(this).addClass("grass divBg");
                 grassCount--;
             }
+            else if(currentResource=='charmander' && charmanderCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("charmander divBg");
+                charmanderCount--;
+            }
+            else if(currentResource=='squirtle' && squirtleCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("squirtle divBg");
+                squirtleCount--;
+            }
+            else if(currentResource=='bulbasaur' && bulbasaurCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("bulbasaur divBg");
+                bulbasaurCount--;
+            }
 
             updateInventory(currentResource);
         }
 
     }
-    var resourceArray = ["grass","leaf","dirt","rock","tree","pika"];
 
-    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount,pikaCount];
+    var resourceArray = ["grass","leaf","dirt","rock","tree","pika","diglett","pidgey","bulbasaur",
+    "charmander","mewtwo","squirtle"];
+
+    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount,pikaCount,diglettCount,pidgeyCount,
+    bulbasaurCount,charmanderCount,mewtwoCount,squirtleCount];
 
     function inventoryMaker(){
         for (var y=0; y<resourceArray.length;y++){
@@ -302,6 +430,15 @@ $(document).ready(function(){
          else if(resourceToUpdate=='pika'){
              $('#pikaNumber').html(pikaCount);
          }
+         else if(resourceToUpdate=='charmander'){
+             $('#charmanderNumber').html(charmanderCount);
+         }
+         else if(resourceToUpdate=='squirtle'){
+             $('#squirtleNumber').html(squirtleCount);
+         }
+         else if(resourceToUpdate=='bulbasaur'){
+             $('#bulbasaurNumber').html(bulbasaurCount);
+         }
     }
 
     var resetButton = $('#restore').click(resetBoard);
@@ -316,7 +453,7 @@ $(document).ready(function(){
         leafCount =0;
         treeCount=0;
         rockCount =0;
-        pikaCount =5;
+        pikaCount =1;
         selectedTool="";
 
         makeBg();
@@ -324,9 +461,49 @@ $(document).ready(function(){
         inventoryMaker();
     }
 
+
     makeBg();
     toolMaker();
     inventoryMaker();
+
+    var charHealth = 60;
+    var squirtHealth= 100;
+    var digHealth = 101;
+    var mewHealth = 170;
+    var pidgHealth = 100;
+    var bulbHeath = 120;
+
+    var num;
+
+    var capturedChar=false;
+    var capturedSquirt=false;
+    var capturedBulb=false;
+
+    $(".diglett").data("health",digHealth);
+
+    $(".squirtle").data("health",squirtHealth);
+    $(".squirtle").data("attack",15);
+
+    $(".pika").data("attack",5);
+
+    $(".charmander").data("health",charHealth);
+    $(".charmander").data("attack",10);
+
+    $(".mewtwo").data("health",mewHealth);
+    $(".pidgey").data("health",pidgHealth);
+
+    $(".bulbasaur").data("health",bulbHeath);
+    $(".bulbasaur").data("attack",19);
+
+
+    $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").hover(function(){
+        num = $(this).data("health");
+        $('#healthbar').css("width",num);
+    });
+
+    $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").mouseout(function(){
+        $('#healthbar').css("width","180px");
+    });
 
 
 });
