@@ -242,7 +242,7 @@ function stats(){
             }
             else if(selectedDiv =='charmander divBg'){
                 if (currentResource=='pika'  && pikaCount>0 || currentResource=='squirtle' && squirtleCount>0
-                || currentResource=="bulbasaur" && bulbasaurCount>0){
+                || currentResource=="bulbasaur" && bulbasaurCount>0 || currentResource=='diglett' && diglettCount>0){
 
                     if (currentResource=='pika'){
                         charHealth-= $('.pika').data("attack");
@@ -252,6 +252,9 @@ function stats(){
                     }
                     else if(currentResource=='bulbasaur'){
                             charHealth-= $(".bulbasaur").data("attack");
+                    }
+                    else if(currentResource=='diglett'){
+                            charHealth-= $(".diglett").data("attack");
                     }
 
                     $(this).data("health",charHealth);
@@ -269,7 +272,8 @@ function stats(){
             else if(selectedDiv =='squirtle divBg'){
 
                 if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
-                currentResource=="bulbasaur" && bulbasaurCount>0){
+                currentResource=="bulbasaur" && bulbasaurCount>0 || currentResource=='diglett' && diglettCount>0
+                            ){
                     if (currentResource=='pika'){
                         squirtHealth-= $(".pika").data("attack");
                     }
@@ -278,6 +282,9 @@ function stats(){
                     }
                     else if(currentResource=='bulbasaur'){
                             squirtHealth-= $(".bulbasaur").data("attack");
+                    }
+                    else if(currentResource=='diglett'){
+                            squirtHealth-= $(".diglett").data("attack");
                     }
 
                     $(this).data("health",squirtHealth);
@@ -296,7 +303,7 @@ function stats(){
             else if(selectedDiv =='bulbasaur divBg'){
 
                 if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
-            currentResource=='squirtle' && squirtleCount>0 ){
+            currentResource=='squirtle' && squirtleCount>0 || currentResource=='diglett' && diglettCount>0){
 
                     if (currentResource=='pika'){
                         bulbHeath-= $(".pika").data("attack");
@@ -306,6 +313,9 @@ function stats(){
                     }
                     else if(currentResource=='squirtle'){
                             bulbHeath-= $(".squirtle").data("attack");
+                    }
+                    else if(currentResource=='diglett'){
+                            bulbHeath-= $(".diglett").data("attack");
                     }
 
                     $(this).data("health",bulbHeath);
@@ -318,6 +328,37 @@ function stats(){
                     $(this).addClass("divBg");
                     bulbasaurCount++;
                     capturedBulb=true;
+                }
+            }
+
+            else if(selectedDiv =='diglett divBg'){
+
+                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
+            currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0){
+
+                    if (currentResource=='pika'){
+                        digHealth-= $(".pika").data("attack");
+                    }
+                    else if(currentResource=='charmander'){
+                            digHealth-= $(".charmander").data("attack");
+                    }
+                    else if(currentResource=='squirtle'){
+                            digHealth-= $(".squirtle").data("attack");
+                    }
+                    else if(currentResource=='bulbasaur'){
+                            digHealth-= $(".bulbasaur").data("attack");
+                    }
+
+                    $(this).data("health",digHealth);
+                    $('#healthbar').css("width",digHealth);
+                    //alert($(this).data("health"));
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedDig==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    diglettCount++;
+                    capturedDig=true;
                 }
             }
 
@@ -374,6 +415,11 @@ function stats(){
                 $(this).removeClass(selectedDiv);
                 $(this).addClass("bulbasaur divBg");
                 bulbasaurCount--;
+            }
+            else if(currentResource=='diglett' && diglettCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("diglett divBg");
+                diglettCount--;
             }
 
             updateInventory(currentResource);
@@ -439,6 +485,9 @@ function stats(){
          else if(resourceToUpdate=='bulbasaur'){
              $('#bulbasaurNumber').html(bulbasaurCount);
          }
+         else if(resourceToUpdate=='diglett'){
+             $('#diglettNumber').html(diglettCount);
+         }
     }
 
     var resetButton = $('#restore').click(resetBoard);
@@ -478,8 +527,10 @@ function stats(){
     var capturedChar=false;
     var capturedSquirt=false;
     var capturedBulb=false;
+    //var capturedDig=false;
 
     $(".diglett").data("health",digHealth);
+    $(".diglett").data("attack",13);
 
     $(".squirtle").data("health",squirtHealth);
     $(".squirtle").data("attack",15);
