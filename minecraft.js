@@ -177,6 +177,25 @@ $(document).ready(function(){
 
         }
 
+        var healthbarTimer=0;
+        function blinkRedPokemon(){
+            if (noClick==false){
+                noClick = true;
+
+                var healthbarInterval = setInterval(function(){
+                $("#healthbar").toggleClass("backgroundRed green");
+                healthbarTimer++;
+
+                if(healthbarTimer==4){
+                    clearInterval(healthbarInterval);
+                    healthbarTimer=0;
+                    noClick = false;
+                }
+            },100)
+
+            }
+        }
+
 
 function stats(){
     alert(this.health);
@@ -272,13 +291,17 @@ function stats(){
 
                     $(this).data("health",charHealth);
                     $('#healthbar').css("width",charHealth);
-                    //alert($(this).data("health"));
+                    blinkRedPokemon();
                 }
 
                 if(carrying=='tool pokeball' && ($(this).data("health")<40 || capturedChar==true)){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
                     charmanderCount++;
+
+                    if (capturedChar==false){
+                        $(".captureMessage").modal('show');
+                    }
                     capturedChar=true;
                 }
             }
@@ -302,13 +325,19 @@ function stats(){
 
                     $(this).data("health",squirtHealth);
                     $('#healthbar').css("width",squirtHealth);
-                    //alert($(this).data("health"));
+                    blinkRedPokemon();
+
+
                 }
 
                 if(carrying=='tool pokeball' && ( $(this).data("health")<40 || capturedSquirt==true)){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
                     squirtleCount++;
+
+                    if (capturedSquirt==false){
+                        $(".captureMessage").modal('show');
+                    }
                     capturedSquirt=true;
                 }
             }
@@ -333,13 +362,17 @@ function stats(){
 
                     $(this).data("health",bulbHeath);
                     $('#healthbar').css("width",bulbHeath);
-                    //alert($(this).data("health"));
+                    blinkRedPokemon();
                 }
 
                 if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedBulb==true)){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
                     bulbasaurCount++;
+
+                    if (capturedBulb==false){
+                        $(".captureMessage").modal('show');
+                    }
                     capturedBulb=true;
                 }
             }
@@ -364,13 +397,18 @@ function stats(){
 
                     $(this).data("health",digHealth);
                     $('#healthbar').css("width",digHealth);
-                    //alert($(this).data("health"));
+                    blinkRedPokemon();
                 }
 
                 if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedDig==true)){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
                     diglettCount++;
+
+
+
+                        $(".captureMessage").modal('show');
+
                     capturedDig=true;
                 }
             }
@@ -540,7 +578,7 @@ function stats(){
     var capturedChar=false;
     var capturedSquirt=false;
     var capturedBulb=false;
-    //var capturedDig=false;
+    var capturedDig=false;
 
     $(".diglett").data("health",digHealth);
     $(".diglett").data("attack",13);

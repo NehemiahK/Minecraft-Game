@@ -11,6 +11,20 @@ body{
     width: auto;
     height:auto;
 }
+.captureMessage{
+    font-family: 'Bungee', cursive;
+    font-size: 20px;
+}
+#capturedCaption{
+    background: white;
+    height: 120px;
+    width:400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+    margin-left: 20%;
+}
 
 #logo{
     background: url(logo.png);
@@ -39,7 +53,9 @@ body{
     margin-left:20px;
     width:130px;
 }
-
+.green{
+    background-color: green;
+}
 #tutorialModal{
     background-image: url(professor.png);
     background-repeat:no-repeat;
