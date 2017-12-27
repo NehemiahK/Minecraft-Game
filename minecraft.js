@@ -1,5 +1,18 @@
 $(document).ready(function(){
     $("#myModal").modal('show');
+    $("#tutorial").click(function() {
+        $("#tutorialModal").modal('show');
+        $("#myModal").modal('hide');
+    });
+    $("#returnToMain").click(function() {
+        $("#tutorialModal").modal('hide');
+        $("#myModal").modal('show');
+    });
+    $("#play").click(function() {
+        $("#myModal").modal('hide');
+    });
+
+
 
 
     function makeBg(){

@@ -10,7 +10,6 @@ body{
     background-size:contain;
     width: auto;
     height:auto;
-    text-align:center;
 }
 
 #logo{
@@ -40,6 +39,29 @@ body{
     margin-left:20px;
     width:130px;
 }
+
+#tutorialModal{
+    background-image: url(professor.png);
+    background-repeat:no-repeat;
+    background-position-y: 100%;
+    background-position-x: 98%;
+    width:auto;
+    height:auto;
+}
+
+#rules{
+    background-color:white;
+    height:auto;
+    padding: 20px;
+    font-family: 'Bungee', cursive;
+    line-height:1;
+    font-size:20px;
+}
+
+#rules h2{
+    margin-bottom:20px;
+}
+
 
 .divBg:not(.clouds){
     animation: colorchange 400s; /* animation-name followed by duration in seconds*/
