@@ -1,11 +1,44 @@
 
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 
-
-
-
 body{
-    line-height: 0;
+    line-height: 0 !important;
+}
+
+#myModal{
+    background: url(minecraftbg.jpg);
+    background-size:contain;
+    width: auto;
+    height:auto;
+    text-align:center;
+}
+
+#logo{
+    background: url(logo.png);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    width:900px;
+    height:188px;
+    margin-top:80px;
+}
+
+#pokelogo{
+    background: url(pokemon.png);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    width:900px;
+    height:150px;
+}
+
+.button-container{
+    margin-top:40px;
+}
+
+.button-container  button{
+    margin-left:20px;
+    width:130px;
 }
 
 .divBg:not(.clouds){
@@ -196,7 +229,7 @@ body{
 @media only screen and (min-width: 1001px) {
     .divBg{
         width:35px;
-        height: 35px;
+        height:35px;
         background-color: #91C1FC;
         display: inline-block;
     }
