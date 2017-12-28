@@ -688,11 +688,64 @@ $(document).ready(function(){
         treeCount=0;
         rockCount =0;
         pikaCount =1;
+        mewtwoCount =0;
+        pidgeyCount =0;
+        bulbasaurCount =0;
+        charmanderCount =0;
+        diglettCount =0;
+        squirtleCount =0;
+        pokeCount =0;
         selectedTool="";
 
         makeBg();
         toolMaker();
         inventoryMaker();
+
+        charHealth = 60;
+        squirtHealth= 100;
+        digHealth = 101;
+        mewHealth = 170;
+        pidgHealth = 100;
+        bulbHealth = 120;
+
+        capturedChar=false;
+        capturedSquirt=false;
+        capturedBulb=false;
+        capturedDig=false;
+        capturedPidg=false
+        capturedMewtwo=false;
+
+        $('#healthbar').css("width","180px");
+
+        $(".diglett").data("health",digHealth);
+        $(".diglett").data("attack",13);
+
+        $(".squirtle").data("health",squirtHealth);
+        $(".squirtle").data("attack",15);
+
+        $(".pika").data("attack",5);
+
+        $(".charmander").data("health",charHealth);
+        $(".charmander").data("attack",10);
+
+        $(".mewtwo").data("health",mewHealth);
+        $(".mewtwo").data("attack",50);
+
+        $(".pidgey").data("health",pidgHealth);
+        $(".pidgey").data("attack",6);
+
+        $(".bulbasaur").data("health",bulbHeath);
+        $(".bulbasaur").data("attack",19);
+
+
+        $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").hover(function(){
+            num = $(this).data("health");
+            $('#healthbar').css("width",num);
+        });
+
+        $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").mouseout(function(){
+            $('#healthbar').css("width","180px");
+        });
     }
 
 
