@@ -778,6 +778,9 @@ $(document).ready(function(){
         num = $(this).data("health");
         $('#healthbar').css("width",num);
     });
+    $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").mouseout(function(){
+        $('#healthbar').css("width","180px");
+    });
 
     $(".divbg").hover(function(){
         $('#healthbar').css("width","180px");
