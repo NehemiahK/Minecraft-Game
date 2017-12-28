@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+
     $("#myModal").modal('show');
     $("#tutorial").click(function() {
         $("#tutorialModal").modal('show');
@@ -16,7 +18,6 @@ $(document).ready(function(){
 
 
     function makeBg(){
-
 
         for (var i=0; i<20; i++){ // i is column
 
@@ -405,10 +406,11 @@ function stats(){
                     $(this).addClass("divBg");
                     diglettCount++;
 
-
-
+                    if (capturedDig==false){
+                        $('#capturedCaption').text("Diglett has been added to your Pokedex");
                         $(".captureMessage").modal('show');
 
+                    }
                     capturedDig=true;
                 }
             }
