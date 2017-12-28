@@ -56,13 +56,25 @@ body{
 .green{
     background-color: green;
 }
-#tutorialModal{
+#tutorialModal, #winningModal{
     background-image: url(professor.png);
     background-repeat:no-repeat;
     background-position-y: 100%;
     background-position-x: 98%;
     width:auto;
     height:auto;
+}
+
+#winningModal a{
+    margin: 40px;
+}
+#winningModal #rules{
+    padding:50px;
+}
+
+#winningModal #rules > div{
+    margin-top: 40px;
+    padding-bottom: 40px;
 }
 
 #rules{

@@ -155,6 +155,7 @@ $(document).ready(function(){
     var charmanderCount =0;
     var mewtwoCount =0;
     var squirtleCount =0;
+    var pokeCount=0;
 
 
     var backgroundTimer=0;
@@ -307,6 +308,7 @@ $(document).ready(function(){
                     if (capturedChar==false){
                         $('#capturedCaption').text("Charmander has been added to your Pokedex");
                         $(".captureMessage").modal('show');
+                        pokeCount++;
                     }
                     capturedChar=true;
                 }
@@ -351,6 +353,7 @@ $(document).ready(function(){
                     if (capturedSquirt==false){
                         $('#capturedCaption').text("Squirtle has been added to your Pokedex");
                         $(".captureMessage").modal('show');
+                        pokeCount++;
                     }
                     capturedSquirt=true;
                 }
@@ -395,6 +398,7 @@ $(document).ready(function(){
                     if (capturedBulb==false){
                         $('#capturedCaption').text("Bulbasaur has been added to your Pokedex");
                         $(".captureMessage").modal('show');
+                        pokeCount++;
                     }
                     capturedBulb=true;
                 }
@@ -438,7 +442,7 @@ $(document).ready(function(){
                     if (capturedDig==false){
                         $('#capturedCaption').text("Diglett has been added to your Pokedex");
                         $(".captureMessage").modal('show');
-
+                        pokeCount++;
                     }
                     capturedDig=true;
                 }
@@ -481,7 +485,7 @@ $(document).ready(function(){
                     if (capturedPidg==false){
                         $('#capturedCaption').text("Pidgey has been added to your Pokedex");
                         $(".captureMessage").modal('show');
-
+                        pokeCount++;
                     }
                     capturedPidg=true;
                 }
@@ -525,12 +529,18 @@ $(document).ready(function(){
                     if (capturedMewtwo==false){
                         $('#capturedCaption').text("Mewtwo has been added to your Pokedex");
                         $(".captureMessage").modal('show');
-
+                        pokeCount++;
                     }
                     capturedMewtwo=true;
                 }
             }
 
+            if(pokeCount === 6) {
+                setTimeout(function() {
+                    $("#winningModal").modal('show');
+                    $(".captureMessage").modal('hide');
+                },1500);
+            }
 
             var strNameUpdate = selectedDiv.replace(" divBg","");
             updateInventory(strNameUpdate);
