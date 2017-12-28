@@ -78,6 +78,16 @@ body{
     padding-bottom: 40px;
 }
 
+#winningModal #rules img{
+    height: 100px;
+    width: 100px;
+}
+
+#winningModal #rules a{
+    color: white;
+    text-decoration: none;
+}
+
 #rules{
     background-color:white;
     height:auto;

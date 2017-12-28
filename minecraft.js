@@ -125,12 +125,13 @@ $(document).ready(function(){
     var carrying;
 
     function toolSelect(){
-        selectedTool = $(this);
-        $('.tool').css("background-color","black");
-        selectedTool.css("background-color","blue");
-        carrying = selectedTool.attr("class");
-        currentResource="";
-        clearInterval(backgroundInterval);
+        if(backgroundTimer==0){
+            selectedTool = $(this);
+            $('.tool').css("background-color","black");
+            selectedTool.css("background-color","blue");
+            carrying = selectedTool.attr("class");
+            currentResource="";
+        }
     }
 
     /*the counts store the inventory of each resource*/
@@ -291,6 +292,9 @@ $(document).ready(function(){
                     }
                     capturedChar=true;
                 }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                    blinkRed();
+                }
             }
             else if(selectedDiv =='squirtle divBg'){
 
@@ -320,6 +324,9 @@ $(document).ready(function(){
                         pokeCount++;
                     }
                     capturedSquirt=true;
+                }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                    blinkRed();
                 }
             }
 
@@ -351,6 +358,9 @@ $(document).ready(function(){
                     }
                     capturedBulb=true;
                 }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                    blinkRed();
+                }
             }
 
             else if(selectedDiv =='diglett divBg'){
@@ -380,6 +390,9 @@ $(document).ready(function(){
                     }
                     capturedDig=true;
                 }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                    blinkRed();
+                }
             }
             else if(selectedDiv =='pidgey divBg'){
 
@@ -407,6 +420,9 @@ $(document).ready(function(){
                         pokeCount++;
                     }
                     capturedPidg=true;
+                }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                    blinkRed();
                 }
             }
 
@@ -437,13 +453,20 @@ $(document).ready(function(){
                     }
                     capturedMewtwo=true;
                 }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                    blinkRed();
+                }
             }
 
-            if(pokeCount === 6) {
+
+            if(pokeCount === 1 && displayed===false) {
+
                 setTimeout(function() {
                     $("#winningModal").modal('show');
                     $(".captureMessage").modal('hide');
+                    displayed=true;
                 },1500);
+
             }
 
             var strNameUpdate = selectedDiv.replace(" divBg","");
@@ -632,6 +655,7 @@ $(document).ready(function(){
 
     }
 
+    var displayed= false;
     var resetButton = $('#restore').click(resetBoard);
 
     function resetBoard(){
@@ -671,6 +695,7 @@ $(document).ready(function(){
         capturedDig=false;
         capturedPidg=false
         capturedMewtwo=false;
+        displayed=false;
 
         $('#healthbar').css("width","180px");
 
