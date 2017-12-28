@@ -111,7 +111,7 @@ $(document).ready(function(){
             div.addClass("tool " + toolArray[t]);
             var pic = $("<img/>");
             pic.attr("src",toolImages[t]);
-            pic.attr("height","55px");
+            //pic.attr("height","55px");
             div.append(pic);
             var words = $("<p/>");
             words.text(toolArray[t]);
@@ -777,6 +777,9 @@ $(document).ready(function(){
     $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").hover(function(){
         num = $(this).data("health");
         $('#healthbar').css("width",num);
+    });
+    $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").mouseout(function(){
+        $('#healthbar').css("width","180px");
     });
 
     $(".divbg").hover(function(){

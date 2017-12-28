@@ -151,6 +151,7 @@ body{
     height: 20px;
     background-color: green;
     margin:5px;
+    text-align: left;
 }
 .dirt{
     background-image: url("dirt.png");
@@ -231,7 +232,6 @@ body{
     width: 220px;
     display: flex;
     justify-content:center;
-    align-items:center;
     flex-direction: column;
 }
 body{
@@ -243,6 +243,11 @@ body{
     width: 90px;
     height: 90px;
     color:white;
+}
+.tool img{
+
+    width: 55px;
+    height: 55px;
 }
 
 
@@ -303,15 +308,36 @@ body{
 
 @media only screen and (max-width: 1000px) {
     .divBg{
-        width:26px;
-        height: 26px;
+        width:20px;
+        height: 20px;
         background-color: #91C1FC;
         display: inline-block;
     }
     .clouds{
         background-color: #FFF;
-        width:26px;
-        height: 26px;
+        width:20px;
+        height: 20px;
         display: inline-block;
     }
+    #inventory button{
+        width: 33px;
+        height: 22px;
+    }
+    .tool{
+        border: 1px white solid;
+        width: 50px;
+        height: 50px;
+        color:white;
+        font-size: 8px;
+    }
+    .tool img{
+
+        width: 25px;
+        height: 25px;
+    }
+    .inventory{
+        font-size: 10px;
+        text-align: center;
+    }
+
 }
