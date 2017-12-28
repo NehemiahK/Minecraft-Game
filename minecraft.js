@@ -459,7 +459,7 @@ $(document).ready(function(){
             }
 
 
-            if(pokeCount === 1 && displayed===false) {
+            if(pokeCount === 6 && displayed===false) {
 
                 setTimeout(function() {
                     $("#winningModal").modal('show');
