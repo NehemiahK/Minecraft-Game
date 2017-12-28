@@ -102,7 +102,7 @@ $(document).ready(function(){
 
     var toolArray = ["picaxe","shovel","axe","pokeball"];
 
-    var toolImages =["pickaxe.png","shovel.png","axe.png","ball.png"];
+    var toolImages =["images/pickaxe.png","images/shovel.png","images/axe.png","images/ball.png"];
 
     function toolMaker(){
 
@@ -777,9 +777,6 @@ $(document).ready(function(){
     $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").hover(function(){
         num = $(this).data("health");
         $('#healthbar').css("width",num);
-    });
-    $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").mouseout(function(){
-        $('#healthbar').css("width","180px");
     });
 
     $(".divbg").hover(function(){
