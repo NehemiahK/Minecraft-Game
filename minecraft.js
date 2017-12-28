@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+    var vid = document.getElementById("music");
+    vid.autoplay = true;
+    vid.loop = true;
 
     $("#myModal").modal('show');
     $("#tutorial").click(function() {
