@@ -265,28 +265,14 @@ $(document).ready(function(){
 
             }
             else if(selectedDiv =='charmander divBg'){
-                if (currentResource=='pika'  && pikaCount>0 || currentResource=='squirtle' && squirtleCount>0
-                || currentResource=="bulbasaur" && bulbasaurCount>0 || currentResource=='diglett' && diglettCount>0
-            || currentResource=='pidgey' && pidgeyCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
 
-                    if (currentResource=='pika'){
-                        charHealth-= $('.pika').data("attack");
-                    }
-                    else if(currentResource=='squirtle'){
-                            charHealth-= $(".squirtle").data("attack");
-                    }
-                    else if(currentResource=='bulbasaur'){
-                            charHealth-= $(".bulbasaur").data("attack");
-                    }
-                    else if(currentResource=='diglett'){
-                            charHealth-= $(".diglett").data("attack");
-                    }
-                    else if(currentResource=='pidgey'){
-                            charHealth-= $(".pidgey").data("attack");
-                    }
-                    else if(currentResource=='mewtwo'){
-                            charHealth-= $(".mewtwo").data("attack");
-                    }
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
+
+                if ((currentResource=='pika'  || currentResource=='squirtle' || currentResource=="bulbasaur"  ||
+                currentResource=='diglett' || currentResource=='pidgey'  || currentResource=='mewtwo') &&currPokeCount>0){
+
+                    charHealth -= pokeDamage;
 
                     $(this).data("health",charHealth);
                     $('#healthbar').css("width",charHealth);
@@ -308,28 +294,13 @@ $(document).ready(function(){
             }
             else if(selectedDiv =='squirtle divBg'){
 
-                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
-                currentResource=="bulbasaur" && bulbasaurCount>0 || currentResource=='diglett' && diglettCount>0
-                    || currentResource=='pidgey' && pidgeyCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
-                    if (currentResource=='pika'){
-                        squirtHealth-= $(".pika").data("attack");
-                    }
-                    else if(currentResource=='charmander'){
-                            squirtHealth-= $(".charmander").data("attack");
-                    }
-                    else if(currentResource=='bulbasaur'){
-                            squirtHealth-= $(".bulbasaur").data("attack");
-                    }
-                    else if(currentResource=='diglett'){
-                            squirtHealth-= $(".diglett").data("attack");
-                    }
-                    else if(currentResource=='pidgey'){
-                            squirtHealth-= $(".pidgey").data("attack");
-                    }
-                    else if(currentResource=='mewtwo'){
-                            squirtHealth-= $(".mewtwo").data("attack");
-                    }
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
 
+                if ((currentResource=='pika'   ||currentResource=='charmander'   ||currentResource=="bulbasaur" ||
+                currentResource=='diglett' || currentResource=='pidgey'|| currentResource=='mewtwo' )&&currPokeCount>0){
+
+                squirtHealth-= pokeDamage;
 
                     $(this).data("health",squirtHealth);
                     $('#healthbar').css("width",squirtHealth);
@@ -354,28 +325,13 @@ $(document).ready(function(){
 
             else if(selectedDiv =='bulbasaur divBg'){
 
-                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
-            currentResource=='squirtle' && squirtleCount>0 || currentResource=='diglett' && diglettCount>0
-        || currentResource=='pidgey' && pidgeyCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
 
-                    if (currentResource=='pika'){
-                        bulbHealth-= $(".pika").data("attack");
-                    }
-                    else if(currentResource=='charmander'){
-                            bulbHealth-= $(".charmander").data("attack");
-                    }
-                    else if(currentResource=='squirtle'){
-                            bulbHealth-= $(".squirtle").data("attack");
-                    }
-                    else if(currentResource=='diglett'){
-                            bulbHealth-= $(".diglett").data("attack");
-                    }
-                    else if(currentResource=='pidgey'){
-                            bulbHealth-= $(".pidgey").data("attack");
-                    }
-                    else if(currentResource=='mewtwo'){
-                            bulbHealth-= $(".mewtwo").data("attack");
-                    }
+                if ((currentResource=='pika'  ||currentResource=='charmander'  ||currentResource=='squirtle' ||
+                currentResource=='diglett' || currentResource=='pidgey' || currentResource=='mewtwo' )&& currPokeCount>0){
+
+                    bulbHealth -= pokeDamage;
 
                     $(this).data("health",bulbHealth);
 
@@ -399,28 +355,13 @@ $(document).ready(function(){
 
             else if(selectedDiv =='diglett divBg'){
 
-                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
-            currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0
-        || currentResource=='pidgey' && pidgeyCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
 
-                    if (currentResource=='pika'){
-                        digHealth-= $(".pika").data("attack");
-                    }
-                    else if(currentResource=='charmander'){
-                            digHealth-= $(".charmander").data("attack");
-                    }
-                    else if(currentResource=='squirtle'){
-                            digHealth-= $(".squirtle").data("attack");
-                    }
-                    else if(currentResource=='bulbasaur'){
-                            digHealth-= $(".bulbasaur").data("attack");
-                    }
-                    else if(currentResource=='pidgey'){
-                            digHealth-= $(".pidgey").data("attack");
-                    }
-                    else if(currentResource=='mewtwo'){
-                            digHealth-= $(".mewtwo").data("attack");
-                    }
+                if ((currentResource=='pika'  ||currentResource=='charmander' || currentResource=='squirtle' ||
+                currentResource=='bulbasaur'|| currentResource=='pidgey'  || currentResource=='mewtwo' ) && currPokeCount>0){
+
+                    digHealth -= pokeDamage;
 
                     $(this).data("health",digHealth);
                     $('#healthbar').css("width",digHealth);
@@ -442,28 +383,13 @@ $(document).ready(function(){
             }
             else if(selectedDiv =='pidgey divBg'){
 
-                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
-            currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0 ||
-        currentResource=="diglett" && diglettCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
 
-                    if (currentResource=='pika'){
-                        pidgHealth-= $(".pika").data("attack");
-                    }
-                    else if(currentResource=='charmander'){
-                            pidgHealth-= $(".charmander").data("attack");
-                    }
-                    else if(currentResource=='squirtle'){
-                            pidgHealth-= $(".squirtle").data("attack");
-                    }
-                    else if(currentResource=='bulbasaur'){
-                            pidgHealth-= $(".bulbasaur").data("attack");
-                    }
-                    else if(currentResource=='diglett'){
-                            pidgHealth-= $(".diglett").data("attack");
-                    }
-                    else if(currentResource=='mewtwo'){
-                            pidgHealth-= $(".mewtwo").data("attack");
-                    }
+                if ((currentResource=='pika'||currentResource=='charmander'  ||currentResource=='squirtle'
+                || currentResource=='bulbasaur' ||currentResource=="diglett" || currentResource=='mewtwo') && currPokeCount>0){
+
+                    pidgHealth-= pokeDamage;
 
                     $(this).data("health",pidgHealth);
                     $('#healthbar').css("width",pidgHealth);
@@ -486,28 +412,13 @@ $(document).ready(function(){
 
             else if(selectedDiv =='mewtwo divBg'){
 
-                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
-            currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0 ||
-        currentResource=="diglett" && diglettCount>0 || currentResource=='pidgey' && pidgeyCount>0){
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
 
-                    if (currentResource=='pika'){
-                        mewHealth-= $(".pika").data("attack");
-                    }
-                    else if(currentResource=='charmander'){
-                            mewHealth-= $(".charmander").data("attack");
-                    }
-                    else if(currentResource=='squirtle'){
-                            mewHealth-= $(".squirtle").data("attack");
-                    }
-                    else if(currentResource=='bulbasaur'){
-                            mewHealth-= $(".bulbasaur").data("attack");
-                    }
-                    else if(currentResource=='diglett'){
-                            mewHealth-= $(".diglett").data("attack");
-                    }
-                    else if(currentResource=='pidgey'){
-                            mewHealth-= $(".pidgey").data("attack");
-                    }
+                if ((currentResource=='pika' ||currentResource=='charmander' ||currentResource=='squirtle'  ||
+                currentResource=='bulbasaur'  || currentResource=="diglett"  || currentResource=='pidgey') && currPokeCount>0){
+
+                mewHealth -= pokeDamage;
 
                     $(this).data("health",mewHealth);
                     $('#healthbar').css("width",mewHealth);
@@ -639,43 +550,86 @@ $(document).ready(function(){
         $('.tool').css("background-color","black");
     }
 
+
+
     function updateInventory(resourceToUpdate){
-         if (resourceToUpdate=='leaf'){
-            $('#leafNumber').html(leafCount);
-         }
-         else if(resourceToUpdate=='tree'){
-             $('#treeNumber').html(treeCount);
-         }
-         else if(resourceToUpdate=='dirt'){
-             $('#dirtNumber').html(dirtCount);
-         }
-         else if(resourceToUpdate=='grass'){
-             $('#grassNumber').html(grassCount);
-         }
-         else if(resourceToUpdate=='rock'){
-             $('#rockNumber').html(rockCount);
-         }
-         else if(resourceToUpdate=='pika'){
-             $('#pikaNumber').html(pikaCount);
-         }
-         else if(resourceToUpdate=='charmander'){
-             $('#charmanderNumber').html(charmanderCount);
-         }
-         else if(resourceToUpdate=='squirtle'){
-             $('#squirtleNumber').html(squirtleCount);
-         }
-         else if(resourceToUpdate=='bulbasaur'){
-             $('#bulbasaurNumber').html(bulbasaurCount);
-         }
-         else if(resourceToUpdate=='diglett'){
-             $('#diglettNumber').html(diglettCount);
-         }
-         else if(resourceToUpdate=='pidgey'){
-             $('#pidgeyNumber').html(pidgeyCount);
-         }
-         else if(resourceToUpdate=='mewtwo'){
-             $('#mewtwoNumber').html(mewtwoCount);
-         }
+        var hash = "#" + resourceToUpdate + "Number";
+        var hashCount;
+
+        switch (resourceToUpdate) {
+            case 'leaf': hashCount= leafCount;
+                break;
+            case 'tree': hashCount= treeCount;
+                break;
+            case 'dirt': hashCount= dirtCount;
+                break;
+            case 'grass': hashCount= grassCount;
+                break;
+            case 'rock': hashCount= rockCount;
+                break;
+            case 'pika': hashCount= pikaCount;
+                break;
+            case 'charmander': hashCount= charmanderCount;
+                break;
+            case 'squirtle': hashCount= squirtleCount;
+                break;
+            case 'bulbasaur': hashCount= bulbasaurCount;
+                break;
+            case 'diglett': hashCount= diglettCount;
+                break;
+            case 'pidgey': hashCount= pidgeyCount;
+                break;
+            case 'mewtwo': hashCount= mewtwoCount;
+                break;
+        }
+        $(hash).html(hashCount);
+    }
+
+    function checkPokemon(poke){
+        var currPoke;
+
+        switch(poke){
+        case 'pika': currPoke= pikaCount;
+            break;
+        case 'charmander': currPoke= charmanderCount;
+            break;
+        case 'squirtle': currPoke= squirtleCount;
+            break;
+        case 'bulbasaur': currPoke= bulbasaurCount;
+            break;
+        case 'diglett': currPoke= diglettCount;
+            break;
+        case 'pidgey': currPoke= pidgeyCount;
+            break;
+        case 'mewtwo': currPoke= mewtwoCount;
+            break;
+}
+        return currPoke;
+    }
+
+
+    function reduceHealth(poke){
+
+        var currDamage;
+
+        switch(poke){
+        case 'pika': currDamage= $(".pika").data("attack");
+        break;
+        case 'charmander': currDamage= $(".charmander").data("attack");
+            break;
+        case 'squirtle': currDamage= $(".squirtle").data("attack");
+            break;
+        case 'bulbasaur': currDamage= $(".bulbasaur").data("attack");
+            break;
+        case 'diglett': currDamage= $(".diglett").data("attack");
+            break;
+        case 'pidgey': currDamage= $(".pidgey").data("attack");
+            break;
+        case 'mewtwo': currDamage= $(".mewtwo").data("attack");
+            break;
+    }
+        return currDamage;
+
     }
 
     var resetButton = $('#restore').click(resetBoard);
