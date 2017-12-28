@@ -223,14 +223,15 @@ body{
 
 #layout{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    visibility: hidden;
 }
 .wrapper{
     background-color: black;
     height: auto;
-    width: 200px;
+    width: 220px;
     display: flex;
+    justify-content:center;
+    align-items:center;
     flex-direction: column;
 }
 body{
@@ -253,8 +254,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 12px 0px;
     color:white;
     text-align: center;
     text-transform: uppercase;
@@ -272,10 +272,13 @@ body{
     font-size: 20px;
     text-align: center;
 }
+#inventory{
+   padding-left:10px;
+}
 #restore{
     font-size: 20px;
     font-family: 'Bungee', cursive;
-    margin:15px 0px;
+    margin:5px 0px;
     height:30px;
 }
 .backgroundRed{

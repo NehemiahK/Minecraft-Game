@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     var vid = document.getElementById("music");
     vid.autoplay = true;
     vid.loop = true;
@@ -16,15 +15,18 @@ $(document).ready(function(){
     $("#play").click(function() {
         $("#myModal").modal('hide');
     });
+    setTimeout(function() {
+        $("#layout").css("visibility","visible");
+    },1000);
 
     function makeBg(){
 
-        for (var i=0; i<20; i++){ // i is column
+        for (var i=0; i<18; i++){ // i is row
 
             var row = $("<div/>");
             $('#board').append(row);
 
-            for (var j=0; j<30; j++){ // j is row
+            for (var j=0; j<30; j++){ // j is column
                 var col = $("<div/>");
 
                 if(i==2 && j<=8 && j>=6){
@@ -78,7 +80,7 @@ $(document).ready(function(){
                 if (i==15){
                     col.addClass("grass divBg");
                 }
-                if (i==18 && j==5){
+                if (i==16 && j==5){
                     col.addClass("diglett divBg");
                 }
                 else if (i>=16){
@@ -459,7 +461,7 @@ $(document).ready(function(){
             }
 
 
-            if(pokeCount === 1 && displayed===false) {
+            if(pokeCount === 6 && displayed===false) {
 
                 setTimeout(function() {
                     $("#winningModal").modal('show');
