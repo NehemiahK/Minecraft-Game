@@ -50,8 +50,9 @@ body{
 }
 
 .button-container  button{
+    font-family: 'Bungee', cursive;
     margin-left:20px;
-    width:130px;
+    width:150px;
 }
 .green{
     background-color: green;
@@ -136,7 +137,7 @@ body{
 }
 
 #healthbar{
-    width: 160px;
+    width: 180px;
     height: 20px;
     background-color: green;
     margin:5px;
@@ -209,10 +210,6 @@ body{
     background-repeat: no-repeat;
     background-position: center;
 }
-
-
-
-
 
 #layout{
     display: flex;

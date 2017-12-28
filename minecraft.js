@@ -17,9 +17,6 @@ $(document).ready(function(){
         $("#myModal").modal('hide');
     });
 
-
-
-
     function makeBg(){
 
         for (var i=0; i<20; i++){ // i is column
@@ -47,11 +44,9 @@ $(document).ready(function(){
                 if(i==4 && j>3 && j<12 ){
                     col.addClass("clouds");
                 }
-
                 if (i==14 && j>13 && j<17){
                     col.addClass("rock divBg");
                 }
-
                 if(i==2 && j==5){
                     col.addClass("pidgey divBg");
                 }
@@ -61,15 +56,12 @@ $(document).ready(function(){
                 if (i==13 && j==5){
                     col.addClass("leaf divBg");
                 }
-
                 if (j>=22 && j<=26 && i<=10 && i>6){
                     col.addClass("leaf divBg");
                 }
-
                 if (i < 15 && i> 10  && j==24){
                     col.addClass("tree divBg");
                 }
-
                 if (i==14 && j==2 ){
                     col.addClass("bulbasaur divBg");
                 }
@@ -138,6 +130,7 @@ $(document).ready(function(){
         selectedTool.css("background-color","blue");
         carrying = selectedTool.attr("class");
         currentResource="";
+        clearInterval(backgroundInterval);
     }
 
     /*the counts store the inventory of each resource*/
@@ -746,7 +739,6 @@ $(document).ready(function(){
 
         $(".bulbasaur").data("health",bulbHeath);
         $(".bulbasaur").data("attack",19);
-
 
 
         $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").hover(function(){
