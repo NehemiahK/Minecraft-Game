@@ -19,6 +19,7 @@ $(document).ready(function(){
         $("#layout").css("visibility","visible");
     },1000);
 
+
     function makeBg(){
 
         for (var i=0; i<18; i++){ // i is row
@@ -477,68 +478,15 @@ $(document).ready(function(){
         }
         if (selectedDiv=='divBg'){
 
-            if(currentResource=='pika' && pikaCount>0){
+            var classToAdd = currentResource + " divBg";
+            var currPokeCount = checkPokemon(currentResource);
+
+            if (currPokeCount>0){
                 $(this).removeClass(selectedDiv);
-                $(this).addClass("pika divBg");
-                pikaCount--;
+                $(this).addClass(classToAdd);
+                subtractInventory(currentResource);
             }
 
-            if(currentResource=='tree' && treeCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("tree divBg");
-                treeCount--;
-            }
-
-            else if(currentResource=='leaf' && leafCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("leaf divBg");
-                leafCount--;
-            }
-            else if(currentResource=='dirt' && dirtCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("dirt divBg");
-                dirtCount--;
-            }
-            else if(currentResource=='rock' && rockCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("rock divBg");
-                rockCount--;
-            }
-            else if(currentResource=='grass' && grassCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("grass divBg");
-                grassCount--;
-            }
-            else if(currentResource=='charmander' && charmanderCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("charmander divBg");
-                charmanderCount--;
-            }
-            else if(currentResource=='squirtle' && squirtleCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("squirtle divBg");
-                squirtleCount--;
-            }
-            else if(currentResource=='bulbasaur' && bulbasaurCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("bulbasaur divBg");
-                bulbasaurCount--;
-            }
-            else if(currentResource=='diglett' && diglettCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("diglett divBg");
-                diglettCount--;
-            }
-            else if(currentResource=='pidgey' && pidgeyCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("pidgey divBg");
-                pidgeyCount--;
-            }
-            else if(currentResource=='mewtwo' && mewtwoCount>0){
-                $(this).removeClass(selectedDiv);
-                $(this).addClass("mewtwo divBg");
-                mewtwoCount--;
-            }
 
             updateInventory(currentResource);
         }
@@ -610,6 +558,40 @@ $(document).ready(function(){
         $(hash).html(hashCount);
     }
 
+    function subtractInventory(resourceToUpdate){
+        var hash = "#" + resourceToUpdate + "Number";
+        var hashCount;
+
+        switch (resourceToUpdate) {
+            case 'leaf': hashCount= leafCount--;
+                break;
+            case 'tree': hashCount= treeCount--;
+                break;
+            case 'dirt': hashCount= dirtCount--;
+                break;
+            case 'grass': hashCount= grassCount--;
+                break;
+            case 'rock': hashCount= rockCount--;
+                break;
+            case 'pika': hashCount= pikaCount--;
+                break;
+            case 'charmander': hashCount= charmanderCount--;
+                break;
+            case 'squirtle': hashCount= squirtleCount--;
+                break;
+            case 'bulbasaur': hashCount= bulbasaurCount--;
+                break;
+            case 'diglett': hashCount= diglettCount--;
+                break;
+            case 'pidgey': hashCount= pidgeyCount--;
+                break;
+            case 'mewtwo': hashCount= mewtwoCount--;
+                break;
+        }
+        $(hash).html(hashCount);
+    }
+
+
     function checkPokemon(poke){
         var currPoke;
 
@@ -628,6 +610,17 @@ $(document).ready(function(){
             break;
         case 'mewtwo': currPoke= mewtwoCount;
             break;
+
+            case 'leaf': currPoke= leafCount;
+                break;
+            case 'tree': currPoke= treeCount;
+                break;
+            case 'dirt': currPoke= dirtCount;
+                break;
+            case 'grass': currPoke= grassCount;
+                break;
+            case 'rock': currPoke= rockCount;
+                break;
 }
         return currPoke;
     }
