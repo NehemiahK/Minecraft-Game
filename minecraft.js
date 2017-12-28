@@ -748,6 +748,7 @@ $(document).ready(function(){
         $(".bulbasaur").data("attack",19);
 
 
+
         $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").hover(function(){
             num = $(this).data("health");
             $('#healthbar').css("width",num);
@@ -796,7 +797,7 @@ $(document).ready(function(){
     $(".pidgey").data("health",pidgHealth);
     $(".pidgey").data("attack",6);
 
-    $(".bulbasaur").data("health",bulbHeath);
+    $(".bulbasaur").data("health",bulbHealth);
     $(".bulbasaur").data("attack",19);
 
 
@@ -805,7 +806,7 @@ $(document).ready(function(){
         $('#healthbar').css("width",num);
     });
 
-    $(".charmander,.squirtle,.diglett,.mewtwo,.pidgey,.bulbasaur").mouseout(function(){
+    $(".divbg").hover(function(){
         $('#healthbar').css("width","180px");
     });
 
