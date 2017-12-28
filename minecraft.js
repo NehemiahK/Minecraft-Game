@@ -412,6 +412,7 @@ function stats(){
 
                     }
                     capturedDig=true;
+                    capturedBulb = true;
                 }
             }
 
