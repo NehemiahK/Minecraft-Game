@@ -270,7 +270,7 @@ $(document).ready(function(){
             else if(selectedDiv =='charmander divBg'){
                 if (currentResource=='pika'  && pikaCount>0 || currentResource=='squirtle' && squirtleCount>0
                 || currentResource=="bulbasaur" && bulbasaurCount>0 || currentResource=='diglett' && diglettCount>0
-            || currentResource=='pidgey' && pidgeyCount>0){
+            || currentResource=='pidgey' && pidgeyCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
 
                     if (currentResource=='pika'){
                         charHealth-= $('.pika').data("attack");
@@ -286,6 +286,9 @@ $(document).ready(function(){
                     }
                     else if(currentResource=='pidgey'){
                             charHealth-= $(".pidgey").data("attack");
+                    }
+                    else if(currentResource=='mewtwo'){
+                            charHealth-= $(".mewtwo").data("attack");
                     }
 
                     $(this).data("health",charHealth);
@@ -309,7 +312,7 @@ $(document).ready(function(){
 
                 if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
                 currentResource=="bulbasaur" && bulbasaurCount>0 || currentResource=='diglett' && diglettCount>0
-                    || currentResource=='pidgey' && pidgeyCount>0 ){
+                    || currentResource=='pidgey' && pidgeyCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
                     if (currentResource=='pika'){
                         squirtHealth-= $(".pika").data("attack");
                     }
@@ -324,6 +327,9 @@ $(document).ready(function(){
                     }
                     else if(currentResource=='pidgey'){
                             squirtHealth-= $(".pidgey").data("attack");
+                    }
+                    else if(currentResource=='mewtwo'){
+                            squirtHealth-= $(".mewtwo").data("attack");
                     }
 
 
@@ -351,27 +357,30 @@ $(document).ready(function(){
 
                 if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
             currentResource=='squirtle' && squirtleCount>0 || currentResource=='diglett' && diglettCount>0
-        || currentResource=='pidgey' && pidgeyCount>0){
+        || currentResource=='pidgey' && pidgeyCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
 
                     if (currentResource=='pika'){
-                        bulbHeath-= $(".pika").data("attack");
+                        bulbHealth-= $(".pika").data("attack");
                     }
                     else if(currentResource=='charmander'){
-                            bulbHeath-= $(".charmander").data("attack");
+                            bulbHealth-= $(".charmander").data("attack");
                     }
                     else if(currentResource=='squirtle'){
-                            bulbHeath-= $(".squirtle").data("attack");
+                            bulbHealth-= $(".squirtle").data("attack");
                     }
                     else if(currentResource=='diglett'){
-                            bulbHeath-= $(".diglett").data("attack");
+                            bulbHealth-= $(".diglett").data("attack");
                     }
                     else if(currentResource=='pidgey'){
-                            bulbHeath-= $(".pidgey").data("attack");
+                            bulbHealth-= $(".pidgey").data("attack");
+                    }
+                    else if(currentResource=='mewtwo'){
+                            bulbHealth-= $(".mewtwo").data("attack");
                     }
 
-                    $(this).data("health",bulbHeath);
+                    $(this).data("health",bulbHealth);
 
-                    $('#healthbar').css("width",bulbHeath);
+                    $('#healthbar').css("width",bulbHealth);
                     blinkRedPokemon();
                 }
 
@@ -392,7 +401,7 @@ $(document).ready(function(){
 
                 if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
             currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0
-        || currentResource=='pidgey' && pidgeyCount>0){
+        || currentResource=='pidgey' && pidgeyCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
 
                     if (currentResource=='pika'){
                         digHealth-= $(".pika").data("attack");
@@ -408,6 +417,9 @@ $(document).ready(function(){
                     }
                     else if(currentResource=='pidgey'){
                             digHealth-= $(".pidgey").data("attack");
+                    }
+                    else if(currentResource=='mewtwo'){
+                            digHealth-= $(".mewtwo").data("attack");
                     }
 
                     $(this).data("health",digHealth);
@@ -432,7 +444,7 @@ $(document).ready(function(){
 
                 if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
             currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0 ||
-        currentResource=="diglett" && diglettCount>0){
+        currentResource=="diglett" && diglettCount>0 || currentResource=='mewtwo' && mewtwoCount>0){
 
                     if (currentResource=='pika'){
                         pidgHealth-= $(".pika").data("attack");
@@ -448,6 +460,9 @@ $(document).ready(function(){
                     }
                     else if(currentResource=='diglett'){
                             pidgHealth-= $(".diglett").data("attack");
+                    }
+                    else if(currentResource=='mewtwo'){
+                            pidgHealth-= $(".mewtwo").data("attack");
                     }
 
                     $(this).data("health",pidgHealth);
@@ -466,6 +481,50 @@ $(document).ready(function(){
 
                     }
                     capturedPidg=true;
+                }
+            }
+
+            else if(selectedDiv =='mewtwo divBg'){
+
+                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
+            currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0 ||
+        currentResource=="diglett" && diglettCount>0 || currentResource=='pidgey' && pidgeyCount>0){
+
+                    if (currentResource=='pika'){
+                        mewHealth-= $(".pika").data("attack");
+                    }
+                    else if(currentResource=='charmander'){
+                            mewHealth-= $(".charmander").data("attack");
+                    }
+                    else if(currentResource=='squirtle'){
+                            mewHealth-= $(".squirtle").data("attack");
+                    }
+                    else if(currentResource=='bulbasaur'){
+                            mewHealth-= $(".bulbasaur").data("attack");
+                    }
+                    else if(currentResource=='diglett'){
+                            mewHealth-= $(".diglett").data("attack");
+                    }
+                    else if(currentResource=='pidgey'){
+                            mewHealth-= $(".pidgey").data("attack");
+                    }
+
+                    $(this).data("health",mewHealth);
+                    $('#healthbar').css("width",mewHealth);
+                    blinkRedPokemon();
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedMewtwo==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    mewtwoCount++;
+
+                    if (capturedMewtwo==false){
+                        $('#capturedCaption').text("Mewtwo has been added to your Pokedex");
+                        $(".captureMessage").modal('show');
+
+                    }
+                    capturedMewtwo=true;
                 }
             }
 
@@ -532,6 +591,11 @@ $(document).ready(function(){
                 $(this).removeClass(selectedDiv);
                 $(this).addClass("pidgey divBg");
                 pidgeyCount--;
+            }
+            else if(currentResource=='mewtwo' && mewtwoCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("mewtwo divBg");
+                mewtwoCount--;
             }
 
             updateInventory(currentResource);
@@ -603,6 +667,9 @@ $(document).ready(function(){
          else if(resourceToUpdate=='pidgey'){
              $('#pidgeyNumber').html(pidgeyCount);
          }
+         else if(resourceToUpdate=='mewtwo'){
+             $('#mewtwoNumber').html(mewtwoCount);
+         }
     }
 
     var resetButton = $('#restore').click(resetBoard);
@@ -635,7 +702,7 @@ $(document).ready(function(){
     var digHealth = 101;
     var mewHealth = 170;
     var pidgHealth = 100;
-    var bulbHeath = 120;
+    var bulbHealth = 120;
 
     var num;
 
@@ -644,6 +711,7 @@ $(document).ready(function(){
     var capturedBulb=false;
     var capturedDig=false;
     var capturedPidg=false
+    var capturedMewtwo=false;
 
     $(".diglett").data("health",digHealth);
     $(".diglett").data("attack",13);
@@ -657,6 +725,7 @@ $(document).ready(function(){
     $(".charmander").data("attack",10);
 
     $(".mewtwo").data("health",mewHealth);
+    $(".mewtwo").data("attack",50);
 
     $(".pidgey").data("health",pidgHealth);
     $(".pidgey").data("attack",6);
