@@ -102,8 +102,6 @@ $(document).ready(function(){
 
     }
 
-    //$(".charmander").attr("id","charmy");
-    //
 
     var toolArray = ["picaxe","shovel","axe","pokeball"];
 
@@ -198,10 +196,6 @@ $(document).ready(function(){
         }
 
 
-function stats(){
-    alert(this.health);
-}
-
     function divSelect(){
 
         var selectedDiv = $(this).attr("class");
@@ -275,7 +269,8 @@ function stats(){
             }
             else if(selectedDiv =='charmander divBg'){
                 if (currentResource=='pika'  && pikaCount>0 || currentResource=='squirtle' && squirtleCount>0
-                || currentResource=="bulbasaur" && bulbasaurCount>0 || currentResource=='diglett' && diglettCount>0){
+                || currentResource=="bulbasaur" && bulbasaurCount>0 || currentResource=='diglett' && diglettCount>0
+            || currentResource=='pidgey' && pidgeyCount>0){
 
                     if (currentResource=='pika'){
                         charHealth-= $('.pika').data("attack");
@@ -289,6 +284,9 @@ function stats(){
                     else if(currentResource=='diglett'){
                             charHealth-= $(".diglett").data("attack");
                     }
+                    else if(currentResource=='pidgey'){
+                            charHealth-= $(".pidgey").data("attack");
+                    }
 
                     $(this).data("health",charHealth);
                     $('#healthbar').css("width",charHealth);
@@ -301,6 +299,7 @@ function stats(){
                     charmanderCount++;
 
                     if (capturedChar==false){
+                        $('#capturedCaption').text("Charmander has been added to your Pokedex");
                         $(".captureMessage").modal('show');
                     }
                     capturedChar=true;
@@ -310,7 +309,7 @@ function stats(){
 
                 if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
                 currentResource=="bulbasaur" && bulbasaurCount>0 || currentResource=='diglett' && diglettCount>0
-                            ){
+                    || currentResource=='pidgey' && pidgeyCount>0 ){
                     if (currentResource=='pika'){
                         squirtHealth-= $(".pika").data("attack");
                     }
@@ -323,6 +322,10 @@ function stats(){
                     else if(currentResource=='diglett'){
                             squirtHealth-= $(".diglett").data("attack");
                     }
+                    else if(currentResource=='pidgey'){
+                            squirtHealth-= $(".pidgey").data("attack");
+                    }
+
 
                     $(this).data("health",squirtHealth);
                     $('#healthbar').css("width",squirtHealth);
@@ -337,6 +340,7 @@ function stats(){
                     squirtleCount++;
 
                     if (capturedSquirt==false){
+                        $('#capturedCaption').text("Squirtle has been added to your Pokedex");
                         $(".captureMessage").modal('show');
                     }
                     capturedSquirt=true;
@@ -346,7 +350,8 @@ function stats(){
             else if(selectedDiv =='bulbasaur divBg'){
 
                 if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
-            currentResource=='squirtle' && squirtleCount>0 || currentResource=='diglett' && diglettCount>0){
+            currentResource=='squirtle' && squirtleCount>0 || currentResource=='diglett' && diglettCount>0
+        || currentResource=='pidgey' && pidgeyCount>0){
 
                     if (currentResource=='pika'){
                         bulbHeath-= $(".pika").data("attack");
@@ -360,8 +365,12 @@ function stats(){
                     else if(currentResource=='diglett'){
                             bulbHeath-= $(".diglett").data("attack");
                     }
+                    else if(currentResource=='pidgey'){
+                            bulbHeath-= $(".pidgey").data("attack");
+                    }
 
                     $(this).data("health",bulbHeath);
+
                     $('#healthbar').css("width",bulbHeath);
                     blinkRedPokemon();
                 }
@@ -372,6 +381,7 @@ function stats(){
                     bulbasaurCount++;
 
                     if (capturedBulb==false){
+                        $('#capturedCaption').text("Bulbasaur has been added to your Pokedex");
                         $(".captureMessage").modal('show');
                     }
                     capturedBulb=true;
@@ -381,7 +391,8 @@ function stats(){
             else if(selectedDiv =='diglett divBg'){
 
                 if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
-            currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0){
+            currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0
+        || currentResource=='pidgey' && pidgeyCount>0){
 
                     if (currentResource=='pika'){
                         digHealth-= $(".pika").data("attack");
@@ -394,6 +405,9 @@ function stats(){
                     }
                     else if(currentResource=='bulbasaur'){
                             digHealth-= $(".bulbasaur").data("attack");
+                    }
+                    else if(currentResource=='pidgey'){
+                            digHealth-= $(".pidgey").data("attack");
                     }
 
                     $(this).data("health",digHealth);
@@ -412,7 +426,46 @@ function stats(){
 
                     }
                     capturedDig=true;
-                    capturedBulb = false;
+                }
+            }
+            else if(selectedDiv =='pidgey divBg'){
+
+                if ((currentResource=='pika'  && pikaCount>0) ||currentResource=='charmander'  && charmanderCount>0 ||
+            currentResource=='squirtle' && squirtleCount>0 || currentResource=='bulbasaur' && bulbasaurCount>0 ||
+        currentResource=="diglett" && diglettCount>0){
+
+                    if (currentResource=='pika'){
+                        pidgHealth-= $(".pika").data("attack");
+                    }
+                    else if(currentResource=='charmander'){
+                            pidgHealth-= $(".charmander").data("attack");
+                    }
+                    else if(currentResource=='squirtle'){
+                            pidgHealth-= $(".squirtle").data("attack");
+                    }
+                    else if(currentResource=='bulbasaur'){
+                            pidgHealth-= $(".bulbasaur").data("attack");
+                    }
+                    else if(currentResource=='diglett'){
+                            pidgHealth-= $(".diglett").data("attack");
+                    }
+
+                    $(this).data("health",pidgHealth);
+                    $('#healthbar').css("width",pidgHealth);
+                    blinkRedPokemon();
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedPidg==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    pidgeyCount++;
+
+                    if (capturedPidg==false){
+                        $('#capturedCaption').text("Pidgey has been added to your Pokedex");
+                        $(".captureMessage").modal('show');
+
+                    }
+                    capturedPidg=true;
                 }
             }
 
@@ -474,6 +527,11 @@ function stats(){
                 $(this).removeClass(selectedDiv);
                 $(this).addClass("diglett divBg");
                 diglettCount--;
+            }
+            else if(currentResource=='pidgey' && pidgeyCount>0){
+                $(this).removeClass(selectedDiv);
+                $(this).addClass("pidgey divBg");
+                pidgeyCount--;
             }
 
             updateInventory(currentResource);
@@ -542,6 +600,9 @@ function stats(){
          else if(resourceToUpdate=='diglett'){
              $('#diglettNumber').html(diglettCount);
          }
+         else if(resourceToUpdate=='pidgey'){
+             $('#pidgeyNumber').html(pidgeyCount);
+         }
     }
 
     var resetButton = $('#restore').click(resetBoard);
@@ -582,6 +643,7 @@ function stats(){
     var capturedSquirt=false;
     var capturedBulb=false;
     var capturedDig=false;
+    var capturedPidg=false
 
     $(".diglett").data("health",digHealth);
     $(".diglett").data("attack",13);
@@ -595,7 +657,9 @@ function stats(){
     $(".charmander").data("attack",10);
 
     $(".mewtwo").data("health",mewHealth);
+
     $(".pidgey").data("health",pidgHealth);
+    $(".pidgey").data("attack",6);
 
     $(".bulbasaur").data("health",bulbHeath);
     $(".bulbasaur").data("attack",19);
