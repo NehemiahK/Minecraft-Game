@@ -15,7 +15,7 @@ body{
     font-family: 'Bungee', cursive;
     font-size: 20px;
 }
-#failedCapture{
+#failedCapture,#oakMessage{
     font-family: 'Bungee', cursive;
     font-size: 20px;
     background: white;
@@ -25,7 +25,9 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 30%;
-
+}
+#oakMessage{
+    font-size: 19px;
 }
 #capturedCaption, #capturedAllCaption{
     background: white;
@@ -232,6 +234,19 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+.professor{
+    background-image: url("images/professor.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.professorMessage{
+    background-image: url("images/professor.png");
+    background-size: 150px;
+    background-repeat: no-repeat;
+    background-position-y:80%;
+    background-position-x:80%;
 }
 
 #layout{

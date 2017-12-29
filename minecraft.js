@@ -65,6 +65,9 @@ $(document).ready(function(){
                 if (i < 15 && i> 10  && j==24){
                     col.addClass("tree divBg");
                 }
+                if (i ==14 && j==23){
+                    col.addClass("professor divBg");
+                }
                 if (i==14 && j==2 ){
                     col.addClass("bulbasaur divBg");
                 }
@@ -268,6 +271,18 @@ $(document).ready(function(){
                 }
 
             }
+            else if(selectedDiv =='professor divBg'){
+
+                if (pokeCount===6){
+                    var message = "Wow! Congratualtions on catching all of the wild pokemon!";
+                }
+                else {
+                    var message = "You have captured " +pokeCount + " pokemon so far. Catch all wild pokemon for a surprise";
+                }
+                $('#oakMessage').text(message);
+                $(".professorMessage").modal('show');
+            }
+
             else if(selectedDiv =='charmander divBg'){
 
                 var currPokeCount = checkPokemon(currentResource);
