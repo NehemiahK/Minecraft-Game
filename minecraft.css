@@ -15,6 +15,18 @@ body{
     font-family: 'Bungee', cursive;
     font-size: 20px;
 }
+#failedCapture{
+    font-family: 'Bungee', cursive;
+    font-size: 20px;
+    background: white;
+    height: 120px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+
+}
 #capturedCaption, #capturedAllCaption{
     background: white;
     height: 120px;

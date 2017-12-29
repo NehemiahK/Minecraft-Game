@@ -298,6 +298,9 @@ $(document).ready(function(){
                 else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
                     blinkRed();
                 }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedChar==false){
+                    $(".failcaptureMessage").modal('show');
+                }
             }
             else if(selectedDiv =='squirtle divBg'){
 
@@ -330,6 +333,9 @@ $(document).ready(function(){
                 }
                 else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
                     blinkRed();
+                }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedSquirt==false){
+                    $(".failcaptureMessage").modal('show');
                 }
             }
 
@@ -364,6 +370,9 @@ $(document).ready(function(){
                 else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
                     blinkRed();
                 }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedBulb==false){
+                    $(".failcaptureMessage").modal('show');
+                }
             }
 
             else if(selectedDiv =='diglett divBg'){
@@ -396,6 +405,9 @@ $(document).ready(function(){
                 else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
                     blinkRed();
                 }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedDig==false){
+                    $(".failcaptureMessage").modal('show');
+                }
             }
             else if(selectedDiv =='pidgey divBg'){
 
@@ -427,6 +439,9 @@ $(document).ready(function(){
                 else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
                     blinkRed();
                 }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedPidg==false){
+                    $(".failcaptureMessage").modal('show');
+                }
             }
 
             else if(selectedDiv =='mewtwo divBg'){
@@ -456,8 +471,12 @@ $(document).ready(function(){
                     }
                     capturedMewtwo=true;
                 }
+
                 else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
                     blinkRed();
+                }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedMewtwo==false){
+                    $(".failcaptureMessage").modal('show');
                 }
             }
 
