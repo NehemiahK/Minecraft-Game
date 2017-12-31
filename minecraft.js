@@ -3,6 +3,7 @@ $(document).ready(function(){
     vid.autoplay = true;
     vid.loop = true;
 
+
     $("#myModal").modal('show');
     $("#tutorial").click(function() {
         $("#tutorialModal").modal('show');
@@ -274,7 +275,7 @@ $(document).ready(function(){
             else if(selectedDiv =='professor divBg'){
 
                 if (pokeCount===6){
-                    var message = "Wow! Congratualtions on catching all of the wild pokemon!";
+                    var message = "Wow! Congratulations on catching all of the wild pokemon!";
                 }
                 else {
                     var message = "You have captured " +pokeCount + " pokemon so far. Catch all wild pokemon for a surprise";
